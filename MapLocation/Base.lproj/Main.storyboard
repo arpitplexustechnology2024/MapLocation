@@ -1,24 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmA-vw-bgc">
+                                <rect key="frame" x="170.66666666666666" y="209" width="52" height="28"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Medium" family="PingFang HK" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nD-6u-F2j">
+                                <rect key="frame" x="170.66666666666666" y="257" width="52" height="28"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Medium" family="PingFang HK" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fli-O5-23p">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8nD-6u-F2j" firstAttribute="top" secondItem="OmA-vw-bgc" secondAttribute="bottom" constant="20" id="D9x-uN-57Z"/>
+                            <constraint firstItem="Fli-O5-23p" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="HTo-6M-HlA"/>
+                            <constraint firstItem="OmA-vw-bgc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VrD-VU-JCS"/>
+                            <constraint firstItem="8nD-6u-F2j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XOW-3R-8Eg"/>
+                            <constraint firstItem="OmA-vw-bgc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="XVv-Bx-U1Z"/>
+                            <constraint firstItem="Fli-O5-23p" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ewa-yC-Fxy"/>
+                            <constraint firstItem="Fli-O5-23p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fjD-8v-4F1"/>
+                            <constraint firstItem="Fli-O5-23p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lMZ-1o-TaM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="latitudeLabel" destination="OmA-vw-bgc" id="fGc-mu-d63"/>
+                        <outlet property="longitudeLabel" destination="8nD-6u-F2j" id="eRT-DF-Af8"/>
+                        <outlet property="mapView" destination="Fli-O5-23p" id="5r9-vQ-sHY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
