@@ -6,24 +6,72 @@
 //
 
 import UIKit
+import WebKit
+import CoreLocation
 
-class GoogleMapViewController: UIViewController {
-
+class GoogleMapViewController: UIViewController, CLLocationManagerDelegate {
+    
+    @IBOutlet weak var webView: WKWebView!
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+//        let urlString = "https://www.google.com/maps?q=\(latitude),\(longitude)&z=15&output=embed"
+//        if let url = URL(string: urlString) {
+//            let request = URLRequest(url: url)
+//            webView.load(request)
+//        }
+        
+        let iframeHTML = """
+               <html>
+               <head>
+               <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+               <meta charset="utf-8">
+               <style>
+                 html, body {
+                   height: 100%;
+                   margin: 0;
+                   padding: 0;
+                 }
+                 #map {
+                   height: 100%;
+                 }
+               </style>
+               </head>
+               <body>
+                 <iframe
+                   width="100%"
+                   height="100%"
+                   frameborder="0" style="border:0"
+                   src="https://www.google.com/maps/embed/v1/view?key=YOUR_API_KEY&center=\(latitude),\(longitude)&zoom=15" allowfullscreen>
+                 </iframe>
+               </body>
+               </html>
+               """
+               
+               // Load the iframe HTML in the WKWebView
+               webView.loadHTMLString(iframeHTML, baseURL: nil)
+        
+        locationManager.stopUpdatingLocation()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            locationManager.startUpdatingLocation()
+        } else {
+            print("Location services are not authorized")
+        }
     }
-    */
-
 }

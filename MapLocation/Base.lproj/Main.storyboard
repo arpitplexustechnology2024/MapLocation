@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t1t-4e-Lf2">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -17,45 +17,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmA-vw-bgc">
-                                <rect key="frame" x="170.66666666666666" y="209" width="52" height="28"/>
-                                <fontDescription key="fontDescription" name="PingFangHK-Medium" family="PingFang HK" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nD-6u-F2j">
-                                <rect key="frame" x="170.66666666666666" y="257" width="52" height="28"/>
-                                <fontDescription key="fontDescription" name="PingFangHK-Medium" family="PingFang HK" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fli-O5-23p">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8nD-6u-F2j" firstAttribute="top" secondItem="OmA-vw-bgc" secondAttribute="bottom" constant="20" id="D9x-uN-57Z"/>
-                            <constraint firstItem="Fli-O5-23p" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="HTo-6M-HlA"/>
-                            <constraint firstItem="OmA-vw-bgc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VrD-VU-JCS"/>
-                            <constraint firstItem="8nD-6u-F2j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XOW-3R-8Eg"/>
-                            <constraint firstItem="OmA-vw-bgc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="XVv-Bx-U1Z"/>
+                            <constraint firstItem="Fli-O5-23p" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="HTo-6M-HlA"/>
                             <constraint firstItem="Fli-O5-23p" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ewa-yC-Fxy"/>
                             <constraint firstItem="Fli-O5-23p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fjD-8v-4F1"/>
-                            <constraint firstItem="Fli-O5-23p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lMZ-1o-TaM"/>
+                            <constraint firstItem="Fli-O5-23p" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lMZ-1o-TaM"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="latitudeLabel" destination="OmA-vw-bgc" id="fGc-mu-d63"/>
-                        <outlet property="longitudeLabel" destination="8nD-6u-F2j" id="eRT-DF-Af8"/>
                         <outlet property="mapView" destination="Fli-O5-23p" id="5r9-vQ-sHY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="216" y="-35"/>
+        </scene>
+        <!--Google Map View Controller-->
+        <scene sceneID="Xs3-5C-vXY">
+            <objects>
+                <viewController storyboardIdentifier="GoogleMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kQU-gu-h75" customClass="GoogleMapViewController" customModule="MapLocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Nn-uH-aoE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LYf-qt-FBf">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RMW-3m-P9d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="LYf-qt-FBf" id="tbk-NN-tuw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ghc-ZF-zqq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1651" y="-35"/>
+        </scene>
+        <!--Nearby Location View Controller-->
+        <scene sceneID="XBL-dr-4nJ">
+            <objects>
+                <viewController storyboardIdentifier="NearbyLocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t1t-4e-Lf2" customClass="NearbyLocationViewController" customModule="MapLocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yFn-Kr-Fsw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIh-VW-Uod">
+                                <rect key="frame" x="0.0" y="115" width="393" height="737"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NmJ-Ya-eJh">
+                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="t1t-4e-Lf2" id="SWw-wD-pem"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fzI-La-eaz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NmJ-Ya-eJh" firstAttribute="leading" secondItem="fzI-La-eaz" secondAttribute="leading" id="13S-ah-fCz"/>
+                            <constraint firstItem="NmJ-Ya-eJh" firstAttribute="trailing" secondItem="fzI-La-eaz" secondAttribute="trailing" id="9e6-KQ-ZTh"/>
+                            <constraint firstItem="NmJ-Ya-eJh" firstAttribute="top" secondItem="fzI-La-eaz" secondAttribute="top" id="JfX-4P-D8I"/>
+                            <constraint firstItem="VIh-VW-Uod" firstAttribute="leading" secondItem="fzI-La-eaz" secondAttribute="leading" id="dka-rU-T4e"/>
+                            <constraint firstItem="VIh-VW-Uod" firstAttribute="trailing" secondItem="fzI-La-eaz" secondAttribute="trailing" id="dtr-ac-oCq"/>
+                            <constraint firstItem="VIh-VW-Uod" firstAttribute="top" secondItem="NmJ-Ya-eJh" secondAttribute="bottom" id="hLu-wa-LVe"/>
+                            <constraint firstItem="VIh-VW-Uod" firstAttribute="bottom" secondItem="yFn-Kr-Fsw" secondAttribute="bottom" id="p9o-Lo-T70"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="VIh-VW-Uod" id="yJU-2v-j5V"/>
+                        <outlet property="searchBar" destination="NmJ-Ya-eJh" id="1gW-aS-OqL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X68-8f-Mvx" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="974.80916030534343" y="-35.211267605633807"/>
         </scene>
     </scenes>
     <resources>
