@@ -6,6 +6,8 @@ target 'MapLocation' do
   use_frameworks!
 
   # Pods for MapLocation
+ pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
   target 'MapLocationTests' do
     inherit! :search_paths
